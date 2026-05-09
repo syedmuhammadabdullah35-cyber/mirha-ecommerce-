@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "An ecommerce product representing a clothing item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string", "enum": ["Summer Lawn Collection", "Summer Printed Lawn", "Light Summer Unstitched"] },
+        "description": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "stockStatus": { "type": "string", "enum": ["In Stock", "Out of Stock"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "price", "category", "images"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A customer order.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerAddress": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string", "enum": ["Pending", "Shipped", "Delivered"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "customerPhone", "items", "totalAmount"]
+    },
+    "Banner": {
+      "title": "Banner",
+      "description": "A promotional banner for the home page slider.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "buttonText": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["imageUrl"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of all products in the store."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Collection of customer orders."
+    },
+    "/banners/{bannerId}": {
+      "schema": "Banner",
+      "description": "Collection of banners for the homepage slider."
+    }
+  }
+}

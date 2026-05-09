@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Mirha By Insaf Cloth house",
+    "price": 3000,
+    "category": "Summer Lawn Collection",
+    "description": "unstitch collection\n",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778086272691-433356014-dalni.jpeg"
+    ],
+    "updatedAt": "2026-05-06T16:52:17.048Z",
+    "createdAt": "2026-05-06T16:52:17.048Z",
+    "id": "1778086337357"
+  },
+  {
+    "title": "Mirha By inssaf cloth house ",
+    "price": 4300,
+    "category": "Summer Lawn Collection",
+    "description": "unstitch collection\n",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778086515922-618025471-dalni-2.jpg"
+    ],
+    "updatedAt": "2026-05-06T16:56:07.462Z",
+    "createdAt": "2026-05-06T16:56:07.462Z",
+    "id": "1778086567776"
+  },
+  {
+    "title": "Mirha by insaf cloth house ",
+    "price": 5000,
+    "category": "Summer Printed Lawn",
+    "description": "unstitch collection\n",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778086579263-660690747-dalni3'.webp"
+    ],
+    "updatedAt": "2026-05-06T16:57:05.682Z",
+    "createdAt": "2026-05-06T16:57:05.682Z",
+    "id": "1778086625685"
+  },
+  {
+    "title": "Mirha by insaf cloth house ",
+    "price": 2800,
+    "category": "Light Summer Unstitched",
+    "description": "unstitch collection",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778098486680-428815253-dalni-5.webp"
+    ],
+    "updatedAt": "2026-05-06T20:15:48.140Z",
+    "createdAt": "2026-05-06T20:15:48.140Z",
+    "id": "1778098548445"
+  },
+  {
+    "title": "Mirha by insaf cloth house",
+    "price": 3700,
+    "category": "Light Summer Unstitched",
+    "description": "unstitch collection",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778098903405-357756602-dalni-6.webp"
+    ],
+    "updatedAt": "2026-05-06T20:22:25.447Z",
+    "createdAt": "2026-05-06T20:22:25.447Z",
+    "id": "1778098945449"
+  },
+  {
+    "title": "Mirha by insaf clothhouse",
+    "price": 4000,
+    "category": "Summer Lawn Collection",
+    "description": "lawn summer",
+    "stockStatus": "In Stock",
+    "images": [
+      "/uploads/1778105568259-642257282-dalni-8.webp"
+    ],
+    "updatedAt": "2026-05-06T22:13:32.428Z",
+    "createdAt": "2026-05-06T22:13:32.428Z",
+    "id": "1778105612740"
+  }
+]

@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      // Very robust check: allow the specific user email and check for existence in admins collection
+      return isSignedIn() && (
+        request.auth.token.email == 'hamidnisar17@outlook.com' ||
+        request.auth.token.email_verified && request.auth.token.email == 'hamidnisar17@outlook.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Products: Everyone can read, only admins can write
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Orders: Everyone can create, only admins can read/update
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Admins collection: Only admins can read/write
+    match /admins/{userId} {
+      allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId && isAdmin());
+    }
+
+    // Banners collection: Everyone can read, only admins can write
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
