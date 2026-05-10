@@ -94,7 +94,7 @@ export function HeroSlider() {
             <img
               src={currentBanner.imageUrl}
               alt={currentBanner.title || "Banner"}
-              className="w-full h-full object-cover object-center"
+             className="w-full h-full object-contain bg-[#f3f3f3]"
             />
 
             {/* OVERLAY */}
