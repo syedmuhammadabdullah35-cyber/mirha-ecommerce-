@@ -48,7 +48,7 @@ export function AdminBanners() {
     setEditingBanner(null);
     setFormData({
       imageUrl: '',
-    title: 'Unstitched <br /> Lawn Collection',
+      title: 'Unstitched <br /> Lawn Collection',
       subtitle: '',
       buttonText: 'View Collections',
       order: banners.length
@@ -127,8 +127,13 @@ export function AdminBanners() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {banners.map((b) => (
           <div key={b.id} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm group">
-            <div className="aspect-[16/9] relative bg-gray-100">
-              <img src={b.imageUrl} alt="" className="w-full h-full object-cover" />
+            {/* Height and fit fix for mobile banners */}
+            <div className="aspect-[16/9] md:aspect-auto md:h-48 relative bg-gray-50 flex items-center justify-center">
+              <img 
+                src={b.imageUrl} 
+                alt="" 
+                className="w-full h-full object-contain" 
+              />
               <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
                 <p className="text-white text-xs font-bold truncate">{b.title}</p>
               </div>
