@@ -76,7 +76,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative h-[65vh] md:h-[85vh] overflow-hidden bg-[#F8F8F8] group"
+     className="relative h-[30vh] sm:h-[50vh] md:h-[85vh] overflow-hidden bg-[#F8F8F8] group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
