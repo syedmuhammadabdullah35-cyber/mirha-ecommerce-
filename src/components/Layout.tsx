@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function Layout() {
-  const whatsappNumber = "+923001234567";
+  const whatsappNumber = "+923214777795";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hello Mirha, I'm interested in your collections.`;
 
   return (
