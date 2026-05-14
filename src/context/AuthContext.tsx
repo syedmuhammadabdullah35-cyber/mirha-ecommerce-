@@ -12,7 +12,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const ADMIN_EMAILS = ['hamidnisar17@outlook.com']; // Bootstrap admin email
+const ADMIN_EMAILS = ['insafclothhouse1718@gmail.com']; // Bootstrap admin email
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
