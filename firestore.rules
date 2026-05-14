@@ -14,8 +14,8 @@ service cloud.firestore {
     function isAdmin() {
       // Very robust check: allow the specific user email and check for existence in admins collection
       return isSignedIn() && (
-        request.auth.token.email == 'hamidnisar17@outlook.com' ||
-        request.auth.token.email_verified && request.auth.token.email == 'hamidnisar17@outlook.com' ||
+        request.auth.token.email == 'insafclothhouse1718@gmail.com' ||
+        request.auth.token.email_verified && request.auth.token.email == 'insafclothhouse1718@gmail.com' ||
         exists(/databases/$(database)/documents/admins/$(request.auth.uid))
       );
     }
