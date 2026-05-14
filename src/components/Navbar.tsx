@@ -11,7 +11,7 @@ export function Navbar() {
   const { user } = useAuth();
 
   // Admin email check
-  const isAdminEmail = user?.email === 'hamidnisar17@outlook.com';
+  const isAdminEmail = user?.email === 'insafclothhouse1718@gmail.com';
 
   return (
     <header className="bg-white border-b border-gray-100">
