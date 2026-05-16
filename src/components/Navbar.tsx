@@ -10,8 +10,8 @@ export function Navbar() {
   const { totalItems } = useCart();
   const { user } = useAuth();
 
-  // Admin email check
-  const isAdminEmail = user?.email === 'insafclothhouse1718@gmail.com';
+  // Admin email check (with case-insensitive handling for absolute safety)
+  const isAdminEmail = user?.email?.toLowerCase() === 'insafclothhouse1718@gmail.com';
 
   return (
     <header className="bg-white border-b border-gray-100">
