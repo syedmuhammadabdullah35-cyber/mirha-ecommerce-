@@ -17,7 +17,7 @@ export function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Yahan check hoga ke login karne wale ka email aapka admin email hai ya nahi
+  // is admin penal check
   const isActualAdmin = user?.email?.toLowerCase() === 'insafclothhouse1718@gmail.com';
 
   useEffect(() => {
