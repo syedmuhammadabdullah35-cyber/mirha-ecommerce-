@@ -13,17 +13,20 @@ import { useEffect } from 'react';
 import { cn } from '../lib/utils';
 
 export function AdminLayout() {
-  const { user, isAdmin, logout, loading } = useAuth();
+  const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Yahan check hoga ke login karne wale ka email aapka admin email hai ya nahi
+  const isActualAdmin = user?.email?.toLowerCase() === 'insafclothhouse1718@gmail.com';
+
   useEffect(() => {
-    if (!loading && (!user || !isAdmin)) {
+    if (!loading && (!user || !isActualAdmin)) {
       navigate('/admin/login');
     }
-  }, [user, isAdmin, loading, navigate]);
+  }, [user, isActualAdmin, loading, navigate]);
 
-  if (loading || !user || !isAdmin) return (
+  if (loading || !user || !isActualAdmin) return (
     <div className="min-h-screen flex items-center justify-center bg-brand-primary">
       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-gold"></div>
     </div>
