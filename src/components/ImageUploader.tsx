@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
-import { Upload, X, Loader2, Image as ImageIcon } from 'lucide-react';
+import { Upload, X, Loader2 } from 'lucide-react';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 interface ImageUploaderProps {
   onUpload: (url: string) => void;
@@ -16,29 +17,19 @@ export function ImageUploader({ onUpload, currentImage, className = "" }: ImageU
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Show local preview
-    const localUrl = URL.createObjectURL(file);
-    setPreview(localUrl);
-
     setIsUploading(true);
-    const formData = new FormData();
-    formData.append('image', file);
-
     try {
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) throw new Error('Upload failed');
-
-      const data = await response.json();
-      onUpload(data.imageUrl);
-      setPreview(data.imageUrl);
+      const storage = getStorage();
+      const storageRef = ref(storage, 'products/' + Date.now() + '_' + file.name);
+      
+      const snapshot = await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+      
+      onUpload(url);
+      setPreview(url);
     } catch (error) {
       console.error('Upload error:', error);
-      alert('Failed to upload image. Please try again.');
-      setPreview(currentImage || '');
+      alert('Failed to upload image. Please check your storage rules.');
     } finally {
       setIsUploading(false);
     }
