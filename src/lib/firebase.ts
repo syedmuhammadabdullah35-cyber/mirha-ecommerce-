@@ -1,11 +1,12 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app'; // getApps add this
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 
-const app = initializeApp(firebaseConfig);
+// Duplicate initialization stop this
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
-// Use the database name from the config if it's there, otherwise it defaults.
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+// FIX: databaseId remove, just your pass
+export const db = getFirestore(app); 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
