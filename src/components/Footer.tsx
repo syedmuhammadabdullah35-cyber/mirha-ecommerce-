@@ -12,7 +12,7 @@ export function Footer() {
             <Link to="/" className="inline-block group">
               <div className="flex items-center gap-4">
                 <img 
-                  src="/mirha-logo.png" 
+                  src="/clint.png" 
                   alt="Mirha Logo" 
                   className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
