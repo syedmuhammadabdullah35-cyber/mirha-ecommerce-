@@ -1,12 +1,20 @@
-import { initializeApp, getApps } from 'firebase/app'; // getApps add this
+import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
 
-// Duplicate initialization stop this
+// 1. Keys
+const firebaseConfig = {
+  apiKey: "YOUR_ACTUAL_API_KEY_HERE",
+  authDomain: "mirhashop.firebaseapp.com",
+  projectId: "mirhashop",
+  storageBucket: "mirhashop.appspot.com",
+  messagingSenderId: "1074360309995",
+  appId: "1:1074360309995:web:xxxxxxxxxxxxxx"
+};
+
+// 2. Initialize app
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
-// FIX: databaseId remove, just your pass
 export const db = getFirestore(app); 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
