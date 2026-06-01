@@ -1,52 +1,26 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, User, signInWithPopup, signOut } from 'firebase/auth';
-import { auth, googleProvider } from '../lib/firebase';
-
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-  isAdmin: boolean;
-  login: () => Promise<void>;
-  logout: () => Promise<void>;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-const ADMIN_EMAILS = ['insafclothhouse1718@gmail.com']; // Bootstrap admin email
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+export function AdminLayout() {
+  const { user, loading, isAdmin } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      setLoading(false);
-    });
-    return unsubscribe;
-  }, []);
+    // Wait until the authentication check is completed
+    if (loading) return;
 
-  const login = async () => {
-    await signInWithPopup(auth, googleProvider);
-  };
+    // If the user is not logged in or is not an admin, redirect to login
+    if (!user || !isAdmin) {
+      navigate('/admin/login');
+    }
+  }, [user, loading, isAdmin, navigate]);
 
-  const logout = async () => {
-    await signOut(auth);
-  };
-
-  const isAdmin = !!user && ADMIN_EMAILS.includes(user.email || '');
+  // Show a loading message while authentication is in progress
+  if (loading) {
+    return <div>Loading dashboard...</div>;
+  }
 
   return (
-    <AuthContext.Provider value={{ user, loading, isAdmin, login, logout }}>
-      {children}
-    </AuthContext.Provider>
+    <div>
+      {/* Your Admin Dashboard content */}
+      <Outlet />
+    </div>
   );
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
 }
