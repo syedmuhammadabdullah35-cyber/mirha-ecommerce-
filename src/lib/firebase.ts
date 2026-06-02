@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_kDZN124bNHRy89whrnFyTmdpk96jZDY",
+  apiKey: "AIzaSyB_kDZNl24bNHRy89whrnFyTmdpk96jZDY",
   authDomain: "mirhashop.firebaseapp.com",
   projectId: "mirhashop",
   storageBucket: "mirhashop.firebasestorage.app",
