@@ -2,7 +2,7 @@
   "apiKey": "AIzaSyB_kDZNl24bNHRy89whrnFyTmdpk96jZDY",
   "authDomain": "mirhashop.firebaseapp.com",
   "projectId": "mirhashop",
-  storageBucket: "mirhashop.firebasestorage.app"
+  storageBucket: "mirhashop.appspot.com"
   "messagingSenderId": "869855032923",
   "appId": "1:869855032923:web:4e2a4d126850e6ef5b317e",
   "measurementId": "G-RVV6G7FD16"
