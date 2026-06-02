@@ -4,8 +4,8 @@ import { getFirestore } from 'firebase/firestore';
 
 // 1. Keys
 const firebaseConfig = {
-  apiKey: "YOUR_ACTUAL_API_KEY_HERE",
-  authDomain: "mirhashop.firebaseapp.com",
+  apiKey: "AIzaSyB_kDZNl24bNHRy89whrnFyTmdpk96jZDY",
+  authDomain: "www.mirhaoficial.com",
   projectId: "mirhashop",
   storageBucket: "mirhashop.appspot.com",
   messagingSenderId: "1074360309995",
